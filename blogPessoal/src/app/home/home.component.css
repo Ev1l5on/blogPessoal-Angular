@@ -1,3 +1,14 @@
 P {
     font-size: large;
 }
+
+.parallax {
+    background-image: url("https://img.ibxk.com.br/2015/09/25/25163207124126.jpg?w=1120&h=420&mode=crop&scale=both");
+
+    min-height: 500px;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
