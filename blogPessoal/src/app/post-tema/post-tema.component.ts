@@ -10,6 +10,7 @@ import { TemaService } from '../service/tema.service';
 })
 export class PostTemaComponent implements OnInit {
   tema: Tema = new Tema()
+  listaTemas: Tema[]
   
   constructor(
     private temaService: TemaService,
@@ -17,8 +18,21 @@ export class PostTemaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.findAllTemas()
   }
 
+  findAllTemas(){
+    this.temaService.getAllTemas().subscribe((resp: Tema[]) => {
+      this.listaTemas = resp
+    })
+  }
+
+  findByIdTema(){
+    this.temaService.getByIdTema(this.tema.id).subscribe((resp: Tema) => {
+      this.tema = resp;
+    })
+  }
+  
   cadastrar(){
     if (this.tema.descricao == null) {
      alert('Preencha o campo de nome do tema corretamente')
